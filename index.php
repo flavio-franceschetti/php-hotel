@@ -34,7 +34,7 @@ $hotels = [
     [
         'name' => 'Hotel Milano',
         'description' => 'Hotel Milano Descrizione',
-        'parking' => true,
+        'parking' => false,
         'vote' => 2,
         'distance_to_center' => 50
     ],
@@ -48,6 +48,17 @@ $filter_parking = isset($_GET['filter_parking']);
 if ($filter_parking) {
     $hotels = array_filter($hotels, function($hotel) {
         return $hotel['parking'];
+    });
+};
+
+//gestisco il filtro dei voti
+$selected_vote = isset($_GET['inlineRadioOptions']) ? $_GET['inlineRadioOptions'] : null;
+// var_dump($selected_vote);
+
+// funzione per filtrare gli hotel in base ai voti ho usato 'use' nella funzione per utilizzare la variabile $selected_vote
+if ($selected_vote !== null) {
+    $hotels = array_filter($hotels, function($hotel) use ($selected_vote) {
+        return $hotel['vote'] == $selected_vote;
     });
 }
 ?>
@@ -82,24 +93,24 @@ if ($filter_parking) {
         
             <span class="me-2">Voto:</span>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" >
                 <label class="form-check-label" for="inlineRadio1">1</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" >
                 <label class="form-check-label" for="inlineRadio2">2</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">3</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3" >
+                <label class="form-check-label" for="inlineRadio3">3</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">4</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4" >
+                <label class="form-check-label" for="inlineRadio4">4</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">5</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5" >
+                <label class="form-check-label" for="inlineRadio5">5</label>
             </div>
 
             <button type="submit" class="btn btn-primary">Filtra</button>
