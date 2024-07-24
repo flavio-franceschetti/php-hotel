@@ -57,6 +57,8 @@ $hotels = [
 </head>
 <body class="p-5">
     <h1 class="fw-normal">PHP Hotel</h1>
+
+    <!-- creo la tabella boostrap -->
         <table class="table" > 
             <thead>
                 <tr>
@@ -68,10 +70,12 @@ $hotels = [
                 </tr>
             </thead>
             <tbody>
+                <!-- faccio un ciclo foreach nell'array degli hotel per tirare fuori i dati da inserire nella tabella -->
             <?php foreach($hotels as $hotel): ?>
                 <tr>
                 <td scope="row"><?php echo $hotel['name'] ?></th>
                 <td><?php echo $hotel['description'] ?></td>
+                <!-- ho inserito un ternario per far si che true e false del parcheggio diventino si o no -->
                 <td><?php echo ($hotel['parking'] ? 'Si' : 'No') ?></td>
                 <td><?php echo $hotel['vote'] ?></td>
                 <td>km. <?php echo $hotel['distance_to_center'] ?></td>
