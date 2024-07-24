@@ -58,6 +58,42 @@ $hotels = [
 <body class="p-5">
     <h1 class="fw-normal">PHP Hotel</h1>
 
+    <div class="d-flex align-items-center">
+        <!-- checkbox per il filtro -->
+        <div class="form-check me-5">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Solo con parcheggio
+            </label>
+        </div>
+
+        <!-- radios section -->
+       
+        <span class="me-2">Voto:</span>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">5</label>
+        </div>
+
+        <button type="button" class="btn btn-primary">Primary</button>
+    </div>
+
     <!-- creo la tabella boostrap -->
         <table class="table" > 
             <thead>
