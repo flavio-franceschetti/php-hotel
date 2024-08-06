@@ -40,11 +40,6 @@ $hotels = [
     ],
 ];
 
-// array per inserire gli hotel filtrati
-$filtered_hotels = $hotels;
-
-
-
 // Controlla se il filtro per il parcheggio è stato selezionato
 $filter_parking = isset($_GET['filter_parking']);
 
@@ -52,7 +47,7 @@ $filter_parking = isset($_GET['filter_parking']);
 // se filter_parking è vero cioè è stata spuntata la checkbox allora l'array $hotels cambia e vengono filtrati gli hotel dove parking è true
 // Il risultato di array_filter sarà un nuovo array contenente solo gli elementi per cui la funzione di callback restituisce vero
 if ($filter_parking) {
-    $hotels = array_filter($filtered_hotels, function($hotel) {
+    $hotels = array_filter($hotels, function($hotel) {
         return $hotel['parking'];
     });
 };
@@ -63,8 +58,8 @@ $selected_vote = isset($_GET['inlineRadioOptions']) ? $_GET['inlineRadioOptions'
 
 // funzione per filtrare gli hotel in base ai voti ho usato 'use' nella funzione per utilizzare la variabile $selected_vote
 if ($selected_vote !== null) {
-    $hotels = array_filter($filtered_hotels, function($hotel) use ($selected_vote) {
-        return $hotel['vote'] == $selected_vote;
+    $hotels = array_filter($hotels, function($hotel) use ($selected_vote) {
+        return $hotel['vote'] >= $selected_vote;
     });
 }
 ?>
